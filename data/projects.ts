@@ -1,0 +1,143 @@
+import { Project, Task, ContentItem, Goal, Idea, DashboardStats } from '@/types'
+
+export const projects: Project[] = [
+  {
+    id: '1',
+    name: 'Price Per Unit',
+    description: 'YouTube channel comparing product costs',
+    status: 'in-progress',
+    progress: 90,
+    revenue: 0,
+    revenuePotential: 10000,
+    nextAction: 'Record Video 1 - Coffee Chains',
+    dueDate: '2026-03-02',
+    category: 'content',
+  },
+  {
+    id: '2',
+    name: 'WhatsLog',
+    description: 'WhatsApp-to-Sheets Chrome extension',
+    status: 'in-progress',
+    progress: 99,
+    revenue: 0,
+    revenuePotential: 5000,
+    nextAction: 'Submit to Chrome Web Store (fee paid)',
+    dueDate: '2026-03-02',
+    category: 'extension',
+  },
+  {
+    id: '3',
+    name: 'GLP-1 Resource Hub',
+    description: 'Directory for GLP-1 medications',
+    status: 'complete',
+    progress: 100,
+    revenue: 0,
+    revenuePotential: 8000,
+    nextAction: 'Deploy to Vercel',
+    dueDate: '2026-03-03',
+    category: 'saas',
+  },
+  {
+    id: '4',
+    name: 'PostDose',
+    description: 'Meal planning app for GLP-1 users',
+    status: 'in-progress',
+    progress: 95,
+    revenue: 0,
+    revenuePotential: 12000,
+    nextAction: 'UI review and deploy',
+    dueDate: '2026-03-04',
+    category: 'app',
+  },
+  {
+    id: '5',
+    name: 'AI Golf Pro',
+    description: 'AI-powered golf coaching app',
+    status: 'planning',
+    progress: 10,
+    revenue: 0,
+    revenuePotential: 40000,
+    nextAction: 'Create MVP specification',
+    dueDate: '2026-04-01',
+    category: 'app',
+  },
+  {
+    id: '6',
+    name: 'AI Pickleball Pro',
+    description: 'AI shot analysis for pickleball',
+    status: 'planning',
+    progress: 5,
+    revenue: 0,
+    revenuePotential: 20000,
+    nextAction: 'Market research',
+    dueDate: '2026-04-15',
+    category: 'app',
+  },
+  {
+    id: '7',
+    name: 'AI Tools Daily',
+    description: 'AI tools newsletter',
+    status: 'complete',
+    progress: 100,
+    revenue: 0,
+    revenuePotential: 15000,
+    nextAction: 'Launch first issue',
+    dueDate: '2026-03-02',
+    category: 'newsletter',
+  },
+  {
+    id: '8',
+    name: 'Solo Founder Digest',
+    description: 'Newsletter for solo founders',
+    status: 'complete',
+    progress: 100,
+    revenue: 0,
+    revenuePotential: 10000,
+    nextAction: 'Launch first issue',
+    dueDate: '2026-03-02',
+    category: 'newsletter',
+  },
+]
+
+export const tasks: Task[] = [
+  { id: '1', projectId: '1', title: 'Create YouTube channel', completed: false, priority: 'high', dueDate: '2026-03-01' },
+  { id: '2', projectId: '1', title: 'Design logo and banner', completed: true, priority: 'high', dueDate: '2026-03-01' },
+  { id: '3', projectId: '1', title: 'Record Video 1 script', completed: false, priority: 'high', dueDate: '2026-03-02' },
+  { id: '4', projectId: '1', title: 'Create thumbnail', completed: false, priority: 'medium', dueDate: '2026-03-02' },
+  { id: '5', projectId: '2', title: 'Pay CWS $5 fee', completed: true, priority: 'high', dueDate: '2026-03-01' },
+  { id: '6', projectId: '2', title: 'Submit to Chrome Web Store', completed: false, priority: 'high', dueDate: '2026-03-02' },
+  { id: '6', projectId: '3', title: 'Deploy to Vercel', completed: false, priority: 'high', dueDate: '2026-03-03' },
+]
+
+export const contentItems: ContentItem[] = [
+  { id: '1', title: 'The REAL Cost of Coffee Chains', type: 'video', status: 'scripting', publishDate: '2026-03-03' },
+  { id: '2', title: 'iPhone vs Android: Price Per Feature', type: 'video', status: 'idea' },
+  { id: '3', title: 'Luxury vs Drugstore Makeup', type: 'video', status: 'idea' },
+  { id: '4', title: 'Gym Memberships: Price Per Workout', type: 'video', status: 'idea' },
+  { id: '5', title: 'Streaming Services: Price Per Hour', type: 'video', status: 'idea' },
+]
+
+export const goals: Goal[] = [
+  { id: '1', title: 'Monthly Revenue', target: 1000, current: 0, unit: '$', deadline: '2026-03-31', category: 'revenue' },
+  { id: '2', title: 'YouTube Subscribers', target: 1000, current: 0, unit: 'subs', deadline: '2026-03-31', category: 'subscribers' },
+  { id: '3', title: 'Videos Published', target: 5, current: 0, unit: 'videos', deadline: '2026-03-31', category: 'content' },
+  { id: '4', title: 'Projects Launched', target: 3, current: 0, unit: 'projects', deadline: '2026-03-31', category: 'projects' },
+]
+
+export const ideas: Idea[] = [
+  { id: '1', title: 'Free Website Ambush', description: 'Matt Ganzak 5-stage automated web dev system', category: 'project', priority: 'high', createdAt: '2026-03-01' },
+  { id: '2', title: 'Mission Control Dashboard', description: 'Visual dashboard for all projects', category: 'project', priority: 'high', createdAt: '2026-03-01' },
+  { id: '3', title: 'AI Tool Showdowns', description: 'YouTube channel comparing AI tools', category: 'content', priority: 'medium', createdAt: '2026-02-28' },
+]
+
+export const dashboardStats: DashboardStats = {
+  totalProjects: 8,
+  activeProjects: 3,
+  completedProjects: 4,
+  totalRevenue: 0,
+  monthlyRevenue: 0,
+  activeTasks: 6,
+  completedTasks: 1,
+  contentPublished: 0,
+  contentScheduled: 1,
+}
