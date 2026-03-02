@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Check HTML
+      run: |
+        # Basic HTML validation could go here
+        echo "HTML files present:"
+        find . -name "*.html" -type f
+    
+    - name: Check file structure
+      run: |
+        echo "Repository structure:"
+        ls -la
+        echo ""
+        echo "Documentation files:"
+        ls -la *.md
