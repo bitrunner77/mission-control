@@ -2624,7 +2624,7 @@
                 </div>
 
                 <!-- Email Templates -->
-                <div class="bg-space-800 rounded-xl border border-space-600">
+                <div class="bg-space-800 rounded-xl border border-space-600 mb-6">
                     <div class="p-4 border-b border-space-600">
                         <h3 class="font-semibold">Quick Templates</h3>
                     </div>
@@ -2655,6 +2655,132 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Reminders & History -->
+                <div class="grid grid-cols-2 gap-6">
+                    <!-- Upcoming Reminders -->
+                    <div class="bg-space-800 rounded-xl border border-space-600">
+                        <div class="p-4 border-b border-space-600 flex items-center justify-between">
+                            <h3 class="font-semibold flex items-center gap-2">
+                                <svg class="w-4 h-4 text-status-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                                </svg>
+                                Reminders
+                            </h3>
+                            <span class="text-xs text-status-yellow">2 due today</span>
+                        </div>
+                        
+                        <div class="p-4 space-y-3">
+                            <div class="flex items-center gap-3 p-3 bg-status-red/10 border border-status-red/30 rounded-lg">
+                                <div class="w-2 h-2 bg-status-red rounded-full animate-pulse"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium">Follow-up: [Person Name]</p>
+                                    <p class="text-xs text-status-red">5 days overdue</p>
+                                </div>
+                                <button onclick="sendFollowUp(3)" class="text-xs bg-status-red text-white px-2 py-1 rounded hover:bg-red-600 transition">Send</button>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 p-3 bg-status-yellow/10 border border-status-yellow/30 rounded-lg">
+                                <div class="w-2 h-2 bg-status-yellow rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium">Follow-up: [Person Name]</p>
+                                    <p class="text-xs text-status-yellow">Due today (3 days)</p>
+                                </div>
+                                <button onclick="sendFollowUp(2)" class="text-xs bg-status-yellow text-black px-2 py-1 rounded hover:bg-yellow-500 transition">Send</button>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 p-3 bg-space-700/50 rounded-lg">
+                                <div class="w-2 h-2 bg-gray-500 rounded-full"></div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-gray-400">Follow-up: [Person Name]</p>
+                                    <p class="text-xs text-gray-500">Due tomorrow</p>
+                                </div>
+                                <button onclick="snoozeReminder(4)" class="text-xs text-gray-400 hover:text-white">Snooze</button>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border-t border-space-600">
+                            <button onclick="addReminder()" class="w-full py-2 bg-space-700 rounded-lg hover:bg-space-600 transition text-sm">
+                                + Add Reminder
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- History & Stats -->
+                    <div class="bg-space-800 rounded-xl border border-space-600">
+                        <div class="p-4 border-b border-space-600">
+                            <h3 class="font-semibold flex items-center gap-2">
+                                <svg class="w-4 h-4 text-status-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                History
+                            </h3>
+                        </div>
+                        
+                        <div class="p-4">
+                            <!-- Monthly Stats -->
+                            <div class="grid grid-cols-3 gap-3 mb-4">
+                                <div class="text-center p-2 bg-space-700/50 rounded-lg">
+                                    <p class="text-2xl font-bold text-status-green">6</p>
+                                    <p class="text-xs text-gray-400">Confirmed</p>
+                                </div>
+                                <div class="text-center p-2 bg-space-700/50 rounded-lg">
+                                    <p class="text-2xl font-bold text-status-red">2</p>
+                                    <p class="text-xs text-gray-400">Ghosted</p>
+                                </div>
+                                <div class="text-center p-2 bg-space-700/50 rounded-lg">
+                                    <p class="text-2xl font-bold text-status-blue">75%</p>
+                                    <p class="text-xs text-gray-400">Success Rate</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent History -->
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-3 p-2 hover:bg-space-700/30 rounded transition">
+                                    <div class="w-8 h-8 bg-status-green/20 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-status-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm">Meeting with [Name]</p>
+                                        <p class="text-xs text-gray-400">Confirmed • 2 days ago</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center gap-3 p-2 hover:bg-space-700/30 rounded transition">
+                                    <div class="w-8 h-8 bg-status-red/20 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-status-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm">[Name] - No response</p>
+                                        <p class="text-xs text-gray-400">Closed • 1 week ago</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center gap-3 p-2 hover:bg-space-700/30 rounded transition">
+                                    <div class="w-8 h-8 bg-status-green/20 rounded-full flex items-center justify-center">
+                                        <svg class="w-4 h-4 text-status-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-sm">Call with [Name]</p>
+                                        <p class="text-xs text-gray-400">Confirmed • 1 week ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-4 border-t border-space-600">
+                            <button onclick="viewFullHistory()" class="w-full text-center text-sm text-status-blue hover:underline">
+                                View Full History
+                            </button>
+                        </div>
+                    </div>
+                </div
             </div>
 
             <!-- CALENDAR TAB -->
@@ -3445,7 +3571,19 @@
         }
 
         function sendFollowUp(id) {
-            showNotification('Follow-up', `Follow-up email template copied for item #${id}`);
+            showNotification('Follow-up Sent', `Follow-up email template copied for item #${id}`);
+        }
+
+        function snoozeReminder(id) {
+            showNotification('Reminder Snoozed', 'Reminder postponed for 24 hours');
+        }
+
+        function addReminder() {
+            showNotification('Add Reminder', 'New reminder form would open here');
+        }
+
+        function viewFullHistory() {
+            showNotification('History', 'Full scheduling history would open here');
         }
 
         function copyTemplate(type) {
@@ -3455,7 +3593,6 @@
                 'confirm': `Great! Looking forward to it.\n\n📅 [Day, Date]\n🕐 [Time] [Timezone]\n🔗 [Zoom link / Location]\n\nI'll send a calendar invite shortly.`
             };
             
-            // In a real app, this would copy to clipboard
             console.log('Template copied:', templates[type]);
             showNotification('Template Copied', `${type.charAt(0).toUpperCase() + type.slice(1)} template ready to paste`);
         }
